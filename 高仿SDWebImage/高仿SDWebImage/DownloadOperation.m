@@ -23,6 +23,17 @@
 {
     NSLog(@"main %@",[NSThread currentThread]);
     //下一步是在这里面的做图片下载的事情，然后传到VC
+    //下载图片
+    NSURL *URL = [NSURL URLWithString:self.URLString];
+    NSData *data = [NSData dataWithContentsOfURL:URL];
+    UIImage *image = [UIImage imageWithData:data];
+    if(self.finishedBlock!=nil)
+    {
+        //需要在主线程，把图片对象传递到控制器
+        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            self.finishedBlock(image);
+        }];
+    }
     
 }
 @end
