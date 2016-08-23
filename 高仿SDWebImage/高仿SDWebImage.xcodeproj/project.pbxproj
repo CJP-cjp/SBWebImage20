@@ -13,6 +13,7 @@
 		047443521D6C924300A347E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047443501D6C924300A347E1 /* Main.storyboard */; };
 		047443541D6C924300A347E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047443531D6C924300A347E1 /* Assets.xcassets */; };
 		047443571D6C924300A347E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047443551D6C924300A347E1 /* LaunchScreen.storyboard */; };
+		047443601D6C939600A347E1 /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474435F1D6C939600A347E1 /* DownloadOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		047443531D6C924300A347E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		047443561D6C924300A347E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		047443581D6C924300A347E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0474435E1D6C939600A347E1 /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
+		0474435F1D6C939600A347E1 /* DownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				047443551D6C924300A347E1 /* LaunchScreen.storyboard */,
 				047443581D6C924300A347E1 /* Info.plist */,
 				047443471D6C924300A347E1 /* Supporting Files */,
+				0474435E1D6C939600A347E1 /* DownloadOperation.h */,
+				0474435F1D6C939600A347E1 /* DownloadOperation.m */,
 			);
 			path = "高仿SDWebImage";
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 				0474434F1D6C924300A347E1 /* ViewController.m in Sources */,
 				0474434C1D6C924300A347E1 /* AppDelegate.m in Sources */,
 				047443491D6C924300A347E1 /* main.m in Sources */,
+				047443601D6C939600A347E1 /* DownloadOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
