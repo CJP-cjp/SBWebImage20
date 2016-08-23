@@ -32,16 +32,13 @@
     NSURL *URL = [NSURL URLWithString:self.URLString];
     NSData *data = [NSData dataWithContentsOfURL:URL];
     UIImage *image = [UIImage imageWithData:data];
-    //断言：保证某一个条件一定满足，如果不满足就崩溃，并且自定义崩溃信息，是C语言开发者的最爱
-    NSAssert(self.finishedBlock != nil, @"下载完成的回调不能为空!");
-//    
-//    if(self.finishedBlock!=nil)
-//    {
+    if(self.finishedBlock!=nil)
+    {
         //需要在主线程，把图片对象传递到控制器
         [[NSOperationQueue mainQueue]addOperationWithBlock:^{
             self.finishedBlock(image);
         }];
-    //}
+    }
     
 }
 +(instancetype)downloadWithURLString:(NSString *)URLString finshedBlock:(void(^)(UIImage*image))finishedBlock
