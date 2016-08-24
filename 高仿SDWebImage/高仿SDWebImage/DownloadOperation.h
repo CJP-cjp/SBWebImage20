@@ -21,4 +21,5 @@
  *
  */
 +(instancetype)downloadWithURLString:(NSString *)URLString finshedBlock:(void(^)(UIImage*image))finishedBlock;
+
 @end

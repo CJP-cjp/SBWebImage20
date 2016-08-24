@@ -26,11 +26,24 @@
  */
 -(void)main
 {
-    NSLog(@"main %@",[NSThread currentThread]);
+    //不能在main方法一开始就做状态是否被取消的判断
+    //因为：有可能操作已经在执行了，但是取消消息还没有发送过来
+    //一般会在延迟操作的后面做判断，但是也可以在多个地方做多次判断
+//    if(self.isCancelled )
+//    {
+//        NSLog(@"取消%@",_URLString);
+//        return;
+//    }
+   // NSLog(@"main %@",[NSThread currentThread]);
     NSLog(@"传入 %@",self.URLString);
     //下一步是在这里面的做图片下载的事情，然后传到VC
     //模拟延迟
     [NSThread sleepForTimeInterval:1.0];
+    if(self.isCancelled )
+    {
+        NSLog(@"取消%@",_URLString);
+        return;
+    }
     //下载图片
     NSURL *URL = [NSURL URLWithString:self.URLString];
     NSData *data = [NSData dataWithContentsOfURL:URL];
@@ -39,6 +52,7 @@
     {
         //需要在主线程，把图片对象传递到控制器
         [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+            NSLog(@"完成%@",_URLString);
             self.finishedBlock(image);
         }];
     }
