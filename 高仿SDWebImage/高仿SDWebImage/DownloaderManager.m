@@ -8,6 +8,7 @@
 //
 
 #import "DownloaderManager.h"
+
 @interface DownloaderManager()
 @end
 @implementation DownloaderManager
@@ -15,9 +16,11 @@
     //全局队列
     NSOperationQueue *_queue;
     //操作缓存池
-    NSMutableDictionary *_OPCache;
+    //NSMutableDictionary *_OPCache;
+    NSCache *_OPCache;
     //图片缓存
-    NSMutableDictionary *_imagesCache;
+    //NSMutableDictionary *_imagesCache;
+    NSCache *_imagesCache;
 }
 
 +(instancetype)sharedManager{
@@ -34,10 +37,12 @@
         //实例化队列
         _queue = [[NSOperationQueue alloc]init];
         //实例化操作缓存池
-        _OPCache = [[NSMutableDictionary alloc]init];
+        //_OPCache = [[NSMutableDictionary alloc]init];
+        _OPCache = [[NSCache alloc]init];
         //实例化图片缓存池
-        _imagesCache = [[NSMutableDictionary alloc]init];
-        UIImageView *imgView = [[UIImageView alloc]init];
+        //_imagesCache = [[NSMutableDictionary alloc]init];
+        //UIImageView *imgView = [[UIImageView alloc]init];
+         _imagesCache = [[NSCache alloc]init];
     }
     return self;
 }
