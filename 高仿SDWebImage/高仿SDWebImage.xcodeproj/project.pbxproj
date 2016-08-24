@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046942291D6D3071000E88ED /* DownloaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 046942281D6D3071000E88ED /* DownloaderManager.m */; };
 		047443491D6C924300A347E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 047443481D6C924300A347E1 /* main.m */; };
 		0474434C1D6C924300A347E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474434B1D6C924300A347E1 /* AppDelegate.m */; };
 		0474434F1D6C924300A347E1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474434E1D6C924300A347E1 /* ViewController.m */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		046942271D6D3071000E88ED /* DownloaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloaderManager.h; sourceTree = "<group>"; };
+		046942281D6D3071000E88ED /* DownloaderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloaderManager.m; sourceTree = "<group>"; };
 		047443441D6C924300A347E1 /* 高仿SDWebImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "高仿SDWebImage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		047443481D6C924300A347E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0474434A1D6C924300A347E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 			children = (
 				0474435F1D6C939600A347E1 /* DownloadOperation.m */,
 				0474435E1D6C939600A347E1 /* DownloadOperation.h */,
+				046942271D6D3071000E88ED /* DownloaderManager.h */,
+				046942281D6D3071000E88ED /* DownloaderManager.m */,
 			);
 			name = SDWebImage;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				0474438A1D6CA42300A347E1 /* AFURLSessionManager.m in Sources */,
 				047443491D6C924300A347E1 /* main.m in Sources */,
 				047443861D6CA42300A347E1 /* AFNetworkReachabilityManager.m in Sources */,
+				046942291D6D3071000E88ED /* DownloaderManager.m in Sources */,
 				047443901D6CA92400A347E1 /* AppsModel.m in Sources */,
 				047443601D6C939600A347E1 /* DownloadOperation.m in Sources */,
 				047443881D6CA42300A347E1 /* AFURLRequestSerialization.m in Sources */,

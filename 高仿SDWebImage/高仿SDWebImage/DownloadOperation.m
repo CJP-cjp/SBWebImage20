@@ -36,7 +36,12 @@
 //    }
    // NSLog(@"main %@",[NSThread currentThread]);
     NSLog(@"传入 %@",self.URLString);
-    //下一步是在这里面的做图片下载的事情，然后传到VC
+    //下一步是在这里面的做图片下载的事情，然后传到manager
+    
+       //下载图片
+    NSURL *URL = [NSURL URLWithString:self.URLString];
+    NSData *data = [NSData dataWithContentsOfURL:URL];
+    UIImage *image = [UIImage imageWithData:data];
     //模拟延迟
     [NSThread sleepForTimeInterval:1.0];
     if(self.isCancelled )
@@ -44,20 +49,20 @@
         NSLog(@"取消%@",_URLString);
         return;
     }
-    //下载图片
-    NSURL *URL = [NSURL URLWithString:self.URLString];
-    NSData *data = [NSData dataWithContentsOfURL:URL];
-    UIImage *image = [UIImage imageWithData:data];
-    if(self.finishedBlock!=nil)
-    {
-        //需要在主线程，把图片对象传递到控制器
+    // 断言 : 保证某一个条件一定满足,如果不满足就崩溃,并且自定义崩溃信息;是C语言开发者的最爱;
+    // 只在开发时有效!方便多人开发的;
+    NSAssert(self.finishedBlock != nil, @"下载完成的回调不能为空!");
+//    if(self.finishedBlock!=nil)
+//    {
+        //需要在主线程，把图片对象传递到manager
         [[NSOperationQueue mainQueue]addOperationWithBlock:^{
             NSLog(@"完成%@",_URLString);
             self.finishedBlock(image);
         }];
-    }
+   // }
     
 }
+//图片的下载方法：这个方法执行完，才执行main ，先有操作，再有main
 +(instancetype)downloadWithURLString:(NSString *)URLString finshedBlock:(void(^)(UIImage*image))finishedBlock
 {
     //创建自定义操作

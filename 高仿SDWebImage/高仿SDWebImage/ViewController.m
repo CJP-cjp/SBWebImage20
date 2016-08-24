@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "DownloadOperation.h"
+#import "DownloaderManager.h"
 #import "AFNetworking.h"
 #import "AppsModel.h"
 @interface ViewController ()
@@ -16,21 +17,21 @@
 
 @implementation ViewController
 {
-    //全局队列
-    NSOperationQueue *_queue;
+//    //全局队列
+//    NSOperationQueue *_queue;
     //设置数据源组
     NSArray *_appList;
-    //操作缓存池
-    NSMutableDictionary *_OPCache;
+//    //操作缓存池
+//    NSMutableDictionary *_OPCache;
     //保存上一次的下载地址
     NSString *_lastURLString;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //实例化队列
-    _queue = [[NSOperationQueue alloc]init];
-    //实例化操作缓存池
-    _OPCache = [[NSMutableDictionary alloc]init];
+//    //实例化队列
+//    _queue = [[NSOperationQueue alloc]init];
+//    //实例化操作缓存池
+//    _OPCache = [[NSMutableDictionary alloc]init];
     //
     [self loadJsonData];
     // Do any additional setup after loading the view, typically from a nib
@@ -42,31 +43,35 @@
     int random = arc4random_uniform((u_int32_t)_appList.count);
     //随机取出模型
     AppsModel *model = _appList[random];
-    //从随机模型里面，取出图片，去下载
-    if (![model.icon isEqualToString:_lastURLString]&&_lastURLString != nil) {
-        //取出上一次的下载操作
-        DownloadOperation *lastOp = [_OPCache objectForKey:_lastURLString];
-        //调用取消方法：只是在改变操作的状态
-        //如果要真的取消操作，需要到操作内部去判断操作的状态
-        [lastOp cancel];
-        //把下载操作从下载操作缓存池移除？
-        [_OPCache removeObjectForKey:model.icon];
+//    //从随机模型里面，取出图片，去下载
+//    if (![model.icon isEqualToString:_lastURLString]&&_lastURLString != nil) {
+//        //取出上一次的下载操作
+//        DownloadOperation *lastOp = [_OPCache objectForKey:_lastURLString];
+//        //调用取消方法：只是在改变操作的状态
+//        //如果要真的取消操作，需要到操作内部去判断操作的状态
+//        [lastOp cancel];
+//        
+    
         
-        
-    }
+//    }
     _lastURLString = model.icon;
-    //创建操作的同时传入图片地址和下载完成的回调
-    DownloadOperation *op = [DownloadOperation downloadWithURLString:model.icon finshedBlock:^(UIImage *image) {
+    //单利接管下载操作
+    [[DownloaderManager sharedManager]downloadWithURLString:model.icon finishedBlock:^(UIImage *image) {
         //赋值操作（主线程）
-        //NSLog(@" %@ %@",image,[NSThread currentThread]);
         self.iconImageView.image = image;
-        //把下载操作从下载操作缓存池移除？
-        [_OPCache removeObjectForKey:model.icon];
     }];
-    //把操作添加到操作缓存池
-    [_OPCache setObject:op forKey:model.icon];
-    //把自定义的操作添加到队列
-    [_queue addOperation:op];
+//    //创建操作的同时传入图片地址和下载完成的回调
+//    DownloadOperation *op = [DownloadOperation downloadWithURLString:model.icon finshedBlock:^(UIImage *image) {
+//        //赋值操作（主线程）
+//        //NSLog(@" %@ %@",image,[NSThread currentThread]);
+//        self.iconImageView.image = image;
+//        //把下载操作从下载操作缓存池移除？
+//        [_OPCache removeObjectForKey:model.icon];
+//    }];
+//    //把操作添加到操作缓存池
+//    [_OPCache setObject:op forKey:model.icon];
+//    //把自定义的操作添加到队列
+//    [_queue addOperation:op];
 }
 //这个'loadJsonData‘方法执行完了之后，我们再去点击屏幕
 //loadJsonData 是辅助我们开发框架，是测试框架的数据来源
@@ -97,17 +102,17 @@
 }
 -(void)demo2
 {
-    //实例化队列
-    _queue = [[NSOperationQueue alloc]init];
-    //创建操作的同时传入图片地址和下载完成的回调
-    DownloadOperation *op = [DownloadOperation downloadWithURLString:@"http://img2.3lian.com/2014/c7/12/d/77.jpg" finshedBlock:^(UIImage *image) {
-        //赋值操作（主线程）
-        NSLog(@" %@ %@",image,[NSThread currentThread]);
-    }];
-    
-    //把自定义的操作添加到队列
-    [_queue addOperation:op];
-    //下一步：指定自定义执行的任务
+//    //实例化队列
+//    _queue = [[NSOperationQueue alloc]init];
+//    //创建操作的同时传入图片地址和下载完成的回调
+//    DownloadOperation *op = [DownloadOperation downloadWithURLString:@"http://img2.3lian.com/2014/c7/12/d/77.jpg" finshedBlock:^(UIImage *image) {
+//        //赋值操作（主线程）
+//        NSLog(@" %@ %@",image,[NSThread currentThread]);
+//    }];
+//    
+//    //把自定义的操作添加到队列
+//    [_queue addOperation:op];
+//    //下一步：指定自定义执行的任务
 }
 //-(void)demo
 //{
