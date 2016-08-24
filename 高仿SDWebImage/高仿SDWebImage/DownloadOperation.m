@@ -27,7 +27,10 @@
 -(void)main
 {
     NSLog(@"main %@",[NSThread currentThread]);
+    NSLog(@"传入 %@",self.URLString);
     //下一步是在这里面的做图片下载的事情，然后传到VC
+    //模拟延迟
+    [NSThread sleepForTimeInterval:1.0];
     //下载图片
     NSURL *URL = [NSURL URLWithString:self.URLString];
     NSData *data = [NSData dataWithContentsOfURL:URL];
