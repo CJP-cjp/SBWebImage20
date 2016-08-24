@@ -6,8 +6,14 @@
 //  Copyright © 2016年 mac. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@interface NSString (SBWebCatch)
+#import <UIKit/UIKit.h>
+#import "DownloaderManager.h"
+@interface UIImageView (SBWebCatch)
 @property(copy,nonatomic)NSString *lastURLString;
+/*
+ *分类下载和展示图片的主方法
+ *
+ *@param URLString 图片下载地址
+ */
+-(void)SB_setimageWithURLString:(NSString*)URLString;
 @end
