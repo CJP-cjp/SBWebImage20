@@ -62,4 +62,17 @@
     [_queue addOperation:op];
     
 }
+//单例管理取消操作的主方法
+-(void)cancelWithLastURLString :(NSString*)lastURLString
+{
+    //取出上一次的下载操作
+    DownloadOperation *lastOp = [_OPCache objectForKey:lastURLString];
+    if (lastOp != nil) {
+        //调用取消方法：只是在改变操作的状态
+        //如果要真的取消操作，需要到操作内部去判断操作的状态
+        [lastOp cancel];
+        //把下载操作从下载操作缓存池中移除
+        [_OPCache removeObjectForKey:lastURLString];
+    }
+}
 @end

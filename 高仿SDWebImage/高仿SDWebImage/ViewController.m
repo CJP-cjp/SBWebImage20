@@ -54,12 +54,15 @@
     
         
 //    }
+    //单例接管取消操作
+    [[DownloaderManager sharedManager]cancelWithLastURLString:_lastURLString];
     _lastURLString = model.icon;
     //单利接管下载操作
     [[DownloaderManager sharedManager]downloadWithURLString:model.icon finishedBlock:^(UIImage *image) {
         //赋值操作（主线程）
         self.iconImageView.image = image;
     }];
+    
 //    //创建操作的同时传入图片地址和下载完成的回调
 //    DownloadOperation *op = [DownloadOperation downloadWithURLString:model.icon finshedBlock:^(UIImage *image) {
 //        //赋值操作（主线程）

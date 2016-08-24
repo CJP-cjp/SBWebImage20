@@ -18,4 +18,11 @@
  * @param finishedBlock 单利接收控制器传入的图片下载完成的回调，把图片回调到VC
  */
 -(void)downloadWithURLString:(NSString *)URLString finishedBlock :(void(^)(UIImage* image))finishedBlock;
+/**
+ *单例管理取消操作
+ *@papram lastURLString 上一次正在执行的操作对应的图片地址
+ 
+ *
+ */
+-(void)cancelWithLastURLString :(NSString*)lastURLString;
 @end
