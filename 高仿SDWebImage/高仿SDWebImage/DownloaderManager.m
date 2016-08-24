@@ -37,6 +37,7 @@
         _OPCache = [[NSMutableDictionary alloc]init];
         //实例化图片缓存池
         _imagesCache = [[NSMutableDictionary alloc]init];
+        UIImageView *imgView = [[UIImageView alloc]init];
     }
     return self;
 }

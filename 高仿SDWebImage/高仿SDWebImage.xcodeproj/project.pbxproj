@@ -10,6 +10,7 @@
 		046942291D6D3071000E88ED /* DownloaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 046942281D6D3071000E88ED /* DownloaderManager.m */; };
 		0469422C1D6D5E85000E88ED /* NSString+path.m in Sources */ = {isa = PBXBuildFile; fileRef = 0469422B1D6D5E85000E88ED /* NSString+path.m */; };
 		046942301D6D5FF1000E88ED /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 0469422F1D6D5FF1000E88ED /* NSString+Hash.m */; };
+		046942331D6D60F9000E88ED /* NSString+SBWebCatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 046942321D6D60F9000E88ED /* NSString+SBWebCatch.m */; };
 		047443491D6C924300A347E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 047443481D6C924300A347E1 /* main.m */; };
 		0474434C1D6C924300A347E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474434B1D6C924300A347E1 /* AppDelegate.m */; };
 		0474434F1D6C924300A347E1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474434E1D6C924300A347E1 /* ViewController.m */; };
@@ -33,6 +34,8 @@
 		0469422B1D6D5E85000E88ED /* NSString+path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+path.m"; sourceTree = "<group>"; };
 		0469422E1D6D5FF1000E88ED /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
 		0469422F1D6D5FF1000E88ED /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		046942311D6D60F9000E88ED /* NSString+SBWebCatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBWebCatch.h"; sourceTree = "<group>"; };
+		046942321D6D60F9000E88ED /* NSString+SBWebCatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBWebCatch.m"; sourceTree = "<group>"; };
 		047443441D6C924300A347E1 /* 高仿SDWebImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "高仿SDWebImage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		047443481D6C924300A347E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0474434A1D6C924300A347E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				0469422A1D6D5E85000E88ED /* NSString+path.h */,
 				0469422B1D6D5E85000E88ED /* NSString+path.m */,
 				046942281D6D3071000E88ED /* DownloaderManager.m */,
+				046942311D6D60F9000E88ED /* NSString+SBWebCatch.h */,
+				046942321D6D60F9000E88ED /* NSString+SBWebCatch.m */,
 			);
 			name = SDWebImage;
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046942331D6D60F9000E88ED /* NSString+SBWebCatch.m in Sources */,
 				047443871D6CA42300A347E1 /* AFSecurityPolicy.m in Sources */,
 				047443891D6CA42300A347E1 /* AFURLResponseSerialization.m in Sources */,
 				0474434F1D6C924300A347E1 /* ViewController.m in Sources */,
